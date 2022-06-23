@@ -122,7 +122,7 @@ const HomeScreen = () => {
                   <Entypo
                     name="location-pin"
                     size={24}
-                    color={`${Colours.primary}`}
+                    color={"black"}
                     style={{ paddingTop: 5 }}
                   />
                   <Text style={styles.locationText}>
@@ -139,9 +139,9 @@ const HomeScreen = () => {
               inputStyle={{
                 fontSize: 15,
                 textAlign: "left",
-                fontFamily: "Poppins_300Light",
+                fontFamily: "Poppins_400Regular",
               }}
-              iconColor={Colours.primary}
+              iconColor={"black"}
               value={""}
             />
           </View>
@@ -205,7 +205,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   locationText: {
-    color: Colours.primary,
     textAlign: "center",
     fontWeight: "bold",
     paddingTop: 10,

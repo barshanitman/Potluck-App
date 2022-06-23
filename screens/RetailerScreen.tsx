@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 30,
-    marginLeft: 15,
+    marginLeft: 13,
   },
   secondaryText: {
     fontSize: 13,
