@@ -47,7 +47,7 @@ const YELP_API_KEY =
 
 const HomeScreen = () => {
   const navigationRoute = useNavigation();
-  const [restuarantData, setRestuarantData] = useState({ businesses: [] });
+  const [restuarantData, setRestuarantData] = useState<any>({ businesses: [] });
   const globalCity = useContext(SelectedRestuarantContext);
   const [initialLocation, setInitialLocation] = useState("Sydney");
   let [fontsLoaded] = useFonts({
@@ -99,12 +99,14 @@ const HomeScreen = () => {
   } else {
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar barStyle={"dark-content"} translucent={true} />
         <View>
           <View
             style={{
               alignItems: "center",
               flexDirection: "row",
               justifyContent: "center",
+              marginRight: 16,
             }}
           >
             <TouchableOpacity
@@ -116,13 +118,14 @@ const HomeScreen = () => {
                 style={{
                   flexDirection: "row",
                   alignItems: "center",
+                  marginTop: 5,
                 }}
               >
                 <View style={{ flexDirection: "row" }}>
                   <Entypo
                     name="location-pin"
                     size={24}
-                    color={"black"}
+                    color={Colours.primary}
                     style={{ paddingTop: 5 }}
                   />
                   <Text style={styles.locationText}>
@@ -137,11 +140,12 @@ const HomeScreen = () => {
               placeholder="What are you feeling like today?"
               style={styles.searchbar}
               inputStyle={{
-                fontSize: 15,
+                fontSize: 14,
                 textAlign: "left",
                 fontFamily: "Poppins_400Regular",
+                justifyContent: "center",
               }}
-              iconColor={"black"}
+              iconColor={Colours.primary}
               value={""}
             />
           </View>
@@ -152,7 +156,7 @@ const HomeScreen = () => {
                   fontWeight: "bold",
                   fontSize: 18,
                   marginLeft: 25,
-                  marginTop: 10,
+                  marginTop: 15,
                   fontFamily: "Poppins_600SemiBold",
                 }}
               >
@@ -197,12 +201,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchbarContainer: {
-    margin: 20,
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 10,
     borderRadius: 5,
+    backgroundColor: "",
   },
   searchbar: {
-    borderRadius: 10,
-    elevation: 5,
+    borderRadius: 20,
+    elevation: 0,
+    // borderBottomColor: "#d8d8d8",
+    // borderBottomWidth: 0.75,
+    backgroundColor: "#f1f2f2",
+    opacity: 0.8,
   },
   locationText: {
     textAlign: "center",

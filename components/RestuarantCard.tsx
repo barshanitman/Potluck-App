@@ -49,6 +49,7 @@ const RestuarantCard = (props: any) => {
                 }}
               >
                 <Text style={styles.secondaryText}>Singaporean</Text>
+                <Text>🇸🇬 </Text>
               </View>
               <View
                 style={{
@@ -95,7 +96,7 @@ const RestuarantCard = (props: any) => {
               <Avatar.Image
                 size={75}
                 source={require("../assets/StockPhoto.jpg")}
-                style={{}}
+                style={{ borderColor: "white" }}
               />
             </View>
           </View>

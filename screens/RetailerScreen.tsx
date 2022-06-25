@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { ListItem } from "react-native-elements";
@@ -27,6 +34,7 @@ const RetailerScreen = ({ route, navigation }) => {
 
   return (
     <View style={{ backgroundColor: "white", height: "100%" }}>
+      <StatusBar barStyle={"light-content"} translucent={true} hidden={true} />
       <Card style={{ elevation: 0 }}>
         <View>
           <Card.Cover source={{ uri: `${imageURL}` }} />
