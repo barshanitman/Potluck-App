@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import IndividualItemScreen from "./screens/IndividualItemScreen";
+import LoginScreen from "./screens/LoginScreen";
 import MapScreen from "./screens/MapScreen";
 import RetailerScreen from "./screens/RetailerScreen";
 
@@ -14,6 +15,7 @@ const StackNavigator = () => {
         headerShown: false,
       }}
     >
+      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Retailer" component={RetailerScreen} />
       <Stack.Screen name="Maps" component={MapScreen} />
