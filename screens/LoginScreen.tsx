@@ -50,7 +50,7 @@ const bgs = [
 const DATA = [
   {
     key: "3571572",
-    title: `Welcome to our community 😍`,
+    title: `Welcome to our new community 😍`,
     description:
       "We are excited to share our authentic assortment of delicious cuisines with you.",
     image: PotLuckLogo_IMAGE,
@@ -59,7 +59,7 @@ const DATA = [
   },
   {
     key: "3571747",
-    title: "Empowering home chefs",
+    title: "Empowering home chefs and virtual restuarants",
     description:
       "All of the dishes on Potluck are brought to you by our amazing chefs working from home.",
     image: feed_IMAGE,
