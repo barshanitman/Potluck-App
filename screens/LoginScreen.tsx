@@ -151,8 +151,8 @@ const Square = ({ scrollX }) => {
   return (
     <Animated.View
       style={{
-        width: width * 1.8,
-        height: width * 1.8,
+        width: width * 2,
+        height: width * 2.2,
         backgroundColor: "white",
         borderRadius: 86,
         position: "absolute",
@@ -182,10 +182,10 @@ const Buttons = () => {
     >
       <TouchableOpacity
         style={{
-          width: 150,
+          width: "95%",
           height: 50,
           justifyContent: "center",
-          backgroundColor: "white",
+          backgroundColor: "yellow",
           borderRadius: 10,
         }}
         activeOpacity={0.5}
@@ -193,21 +193,16 @@ const Buttons = () => {
           navigationRoute.navigate("Home");
         }}
       >
-        <Text style={{ textAlign: "center", fontWeight: "bold" }}>Login</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          width: 150,
-          height: 50,
-          justifyContent: "center",
-          backgroundColor: "yellow",
-          borderRadius: 10,
-          marginLeft: 15,
-        }}
-        activeOpacity={0.5}
-      >
-        <Text style={{ textAlign: "center", fontWeight: "bold" }}>Sign Up</Text>
+        <Text
+          style={{
+            textAlign: "center",
+            fontWeight: "600",
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 20,
+          }}
+        >
+          Explore cuisines
+        </Text>
       </TouchableOpacity>
     </View>
   );
