@@ -9,6 +9,7 @@ import {
   Dimensions,
   FlatList,
   _View,
+  SafeAreaView,
 } from "react-native";
 import { TouchableOpacity } from "react-native";
 import feeding from "../assets/LoginScreenImages/feeding.png";
@@ -63,8 +64,8 @@ const DATA = [
     description:
       "All of the dishes on Potluck are brought to you by our amazing chefs working from home.",
     image: feed_IMAGE,
-    width: width / 2,
-    height: height / 2,
+    width: width * 0.45,
+    height: height * 0.45,
   },
   {
     key: "3571680",
@@ -72,8 +73,8 @@ const DATA = [
     description:
       "There's simply nothing like fresh, home-made food, am I right?",
     image: fingerprint_IMAGE,
-    width: width / 2,
-    height: height / 2,
+    width: width * 0.45,
+    height: height * 0.45,
   },
   {
     key: "3571603",
@@ -81,8 +82,8 @@ const DATA = [
     description:
       "We understand that schedules can be tricky, so we give you the choice of how you want to receive your food.",
     image: delivery_IMAGE,
-    width: width / 2,
-    height: height / 2,
+    width: width * 0.45,
+    height: height * 0.45,
   },
 ];
 
@@ -152,9 +153,9 @@ const Square = ({ scrollX }) => {
     <Animated.View
       style={{
         width: width * 2,
-        height: width * 2.2,
+        height: height,
         backgroundColor: "white",
-        borderRadius: 86,
+        borderRadius: 100,
         position: "absolute",
         top: -height * 0.6,
         left: -height * 0.3,
@@ -196,9 +197,8 @@ const Buttons = () => {
         <Text
           style={{
             textAlign: "center",
-            fontWeight: "600",
+            fontWeight: "bold",
             fontFamily: "Poppins_600SemiBold",
-            fontSize: 20,
           }}
         >
           Explore cuisines
@@ -224,7 +224,7 @@ const LoginScreen = () => {
     );
   } else {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {/* <StatusBar hidden /> */}
 
         <StatusBar barStyle={"dark-content"} translucent={true} />
@@ -274,7 +274,7 @@ const LoginScreen = () => {
                       marginBottom: 12,
                       color: "white",
                       fontFamily: "Poppins_600SemiBold",
-                      marginTop: 5,
+                      marginTop: 10,
                       textAlign: "left",
                     }}
                   >
@@ -295,7 +295,7 @@ const LoginScreen = () => {
           }}
         />
         <Indicator scrollX={scrollX} />
-      </View>
+      </SafeAreaView>
     );
   }
 };
