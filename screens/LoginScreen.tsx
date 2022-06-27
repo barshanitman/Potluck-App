@@ -199,6 +199,7 @@ const Buttons = () => {
             textAlign: "center",
             fontWeight: "bold",
             fontFamily: "Poppins_600SemiBold",
+            fontSize: 18,
           }}
         >
           Explore cuisines

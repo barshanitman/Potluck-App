@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { Colours } from "../assets/utils/colours";
 import {
@@ -93,10 +93,19 @@ const RestuarantCard = (props: any) => {
                 width: 75,
               }}
             >
-              <Avatar.Image
+              {/* <Avatar.Image
                 size={75}
                 source={require("../assets/StockPhoto.jpg")}
                 style={{ borderColor: "white" }}
+              /> */}
+              <Image
+                source={require("../assets/StockPhoto.jpg")}
+                style={{
+                  borderColor: "white",
+                  height: 75,
+                  width: 75,
+                  borderRadius: 100,
+                }}
               />
             </View>
           </View>

@@ -10,8 +10,16 @@ const BackButton = () => {
         onPress={() => {
           navigationRoute.goBack();
         }}
+        style={{
+          backgroundColor: "white",
+          height: 40,
+          width: 40,
+          borderRadius: 100,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <Ionicons name="chevron-back" size={42} color={"black"} />
+        <Ionicons name="chevron-back" size={38} color={"black"} />
       </TouchableOpacity>
     </View>
   );
@@ -23,6 +31,8 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     top: 30,
-    left: 5,
+    left: 10,
+    zIndex: 200,
+    flexDirection: "row",
   },
 });

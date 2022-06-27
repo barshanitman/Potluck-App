@@ -76,7 +76,7 @@ const RetailerScreen = ({ route, navigation }) => {
                 <TouchableOpacity
                   activeOpacity={0.5}
                   onPress={() => {
-                    navigationRoute.navigate("IndividualItem", {
+                    navigationRoute.navigate("ItemCarousel", {
                       imageURL: imageURL,
                       name: item.Name,
                       price: item.Price,
@@ -96,8 +96,9 @@ const RetailerScreen = ({ route, navigation }) => {
             })}
           </ScrollView>
         </View>
+
+        <BackButton />
       </Card>
-      <BackButton />
     </View>
   );
 };

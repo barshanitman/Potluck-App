@@ -168,7 +168,7 @@ const HomeScreen = () => {
               ? restuarantData.businesses.map((item) => (
                   <TouchableOpacity
                     onPress={() =>
-                      navigationRoute.navigate("Retailer", {
+                      navigationRoute.navigate("SupplierInfoScreen", {
                         imageURL: item.image_url,
                         name: item.name,
                         isClosed: item.is_closed,
