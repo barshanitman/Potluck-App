@@ -14,13 +14,15 @@ const FoodCartCounter = () => {
   );
 
   const IncreaseHandler = () => {
-    setCounter(counter + 1);
     increaseCartQuantity();
+    setCounter(counter + 1);
   };
 
   const DecreaseHandler = () => {
-    setCounter(counter - 1);
-    decreaseCartQuantity();
+    if (counter > 0) {
+      decreaseCartQuantity();
+      setCounter(counter - 1);
+    }
   };
 
   const validCounterValue = (val) => {
