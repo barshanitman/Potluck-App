@@ -6,6 +6,7 @@ import {
   ScrollView,
   StatusBar,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
@@ -26,6 +27,7 @@ import {
   Poppins_300Light,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+import { BackgroundImage } from "react-native-elements/dist/config";
 
 const data = {
   title: "Fernandough",
@@ -57,346 +59,345 @@ const SupplierInfoScreen = ({ route, navigation }) => {
   return (
     <View style={{ backgroundColor: "white", height: "100%", flex: 1 }}>
       <StatusBar barStyle={"light-content"} translucent={true} hidden={true} />
-      <Card style={{ elevation: 0 }}>
-        <View>
-          <Card.Cover
-            source={require("../assets/RoseCupCake.jpg")}
-            style={{ height: 250 }}
-          />
-        </View>
-        <ScrollView
-          contentInset={{ bottom: 50 }}
-          bounces
+      <View style={{}}>
+        <ImageBackground
+          source={require("../assets/RoseCupCake.jpg")}
           style={{
-            height: "60%",
-            paddingTop: 5,
-            paddingLeft: 5,
-            paddingRight: 5,
-            paddingBottom: 15,
+            height: 250,
+          }}
+          resizeMode="cover"
+        />
+      </View>
+      <ScrollView
+        contentInset={{ bottom: 70 }}
+        bounces
+        style={{
+          height: "60%",
+          paddingTop: 0,
+          paddingLeft: 5,
+          paddingRight: 5,
+          paddingBottom: 15,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ width: "75%" }}>
-              <View style={{ alignItems: "baseline" }}>
-                <View style={styles.title}>
-                  <Text
-                    style={{ fontSize: 25, fontFamily: "Poppins_600SemiBold" }}
-                  >
-                    Fernandough
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "flex-end",
-                    justifyContent: "space-between",
-                  }}
+          <View style={{ width: "75%" }}>
+            <View style={{ alignItems: "baseline" }}>
+              <View style={styles.title}>
+                <Text
+                  style={{ fontSize: 25, fontFamily: "Poppins_600SemiBold" }}
                 >
-                  <View style={{ marginBottom: 9 }}>
-                    <View
-                      style={{ flexDirection: "row", alignItems: "center" }}
-                    >
-                      <Text style={styles.secondaryText}>Baker</Text>
-                      <Text style={{ marginLeft: 5 }}>🥖</Text>
-                    </View>
+                  Fernandough
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "flex-end",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ marginBottom: 9 }}>
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Text style={styles.secondaryText}>Baker</Text>
+                    <Text style={{ marginLeft: 5 }}>🥖</Text>
                   </View>
                 </View>
               </View>
-              <View
-                style={{
-                  marginBottom: 10,
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                }}
-              >
-                <Text style={styles.suburbTextStyle}>Schofields</Text>
-                <View
-                  style={{
-                    height: 4,
-                    width: 4,
-                    backgroundColor: "gray",
-                    borderRadius: 100,
-                    marginLeft: 6,
-                    marginBottom: 3,
-                  }}
-                ></View>
-
-                <Text style={styles.distanceTextStyle}>2.3kms</Text>
-                <View
-                  style={{
-                    height: 4,
-                    width: 4,
-                    backgroundColor: "gray",
-                    borderRadius: 100,
-                    marginLeft: 6,
-                    marginBottom: 3,
-                  }}
-                ></View>
-
-                <Text style={styles.openStatusStyle}>Closed</Text>
-              </View>
             </View>
-            <Image
-              source={require("../assets/StockPhoto.jpg")}
+            <View
               style={{
-                borderColor: "white",
-                marginTop: 25,
-                marginRight: 20,
-                height: 85,
-                width: 85,
-                borderRadius: 100,
-              }}
-            />
-          </View>
-          <View style={{ marginTop: 10, marginLeft: 15 }}>
-            <Text style={{ fontSize: 18, fontFamily: "Poppins_600SemiBold" }}>
-              About
-            </Text>
-            <ScrollView
-              style={{
-                width: "95%",
-                marginTop: 5,
+                marginBottom: 10,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-start",
               }}
             >
-              <Text
+              <Text style={styles.suburbTextStyle}>Schofields</Text>
+              <View
                 style={{
-                  fontSize: 13,
-                  fontWeight: "600",
-                  fontFamily: "Poppins_300Light",
+                  height: 4,
+                  width: 4,
+                  backgroundColor: "gray",
+                  borderRadius: 100,
+                  marginLeft: 6,
+                  marginBottom: 3,
+                }}
+              ></View>
 
-                  color: "#333333",
-                }}
-              >
-                {data.description}
-              </Text>
-            </ScrollView>
-            <View style={{ marginTop: 20 }}>
+              <Text style={styles.distanceTextStyle}>2.3kms</Text>
               <View
                 style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginBottom: 10,
+                  height: 4,
+                  width: 4,
+                  backgroundColor: "gray",
+                  borderRadius: 100,
+                  marginLeft: 6,
+                  marginBottom: 3,
                 }}
-              >
-                <Image
-                  source={require("../assets/Amenities/dessert.png")}
-                  style={{ height: 20, width: 20 }}
-                />
-                <Text
-                  style={{
-                    marginLeft: 5,
-                    fontFamily: "Poppins_300Light",
-                    color: "#333333",
-                    fontSize: 13,
-                  }}
-                >
-                  Desserts
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginBottom: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/Amenities/CustomOrders.png")}
-                  style={{ height: 20, width: 20 }}
-                />
-                <Text
-                  style={{
-                    marginLeft: 5,
-                    fontFamily: "Poppins_300Light",
-                    color: "#333333",
-                    fontSize: 13,
-                  }}
-                >
-                  Custom Orders
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginBottom: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/Amenities/Vegetarian.png")}
-                  style={{ height: 20, width: 20 }}
-                />
-                <Text
-                  style={{
-                    marginLeft: 5,
-                    fontFamily: "Poppins_300Light",
-                    color: "#333333",
-                    fontSize: 13,
-                  }}
-                >
-                  Vegetarian
-                </Text>
-              </View>
+              ></View>
+
+              <Text style={styles.openStatusStyle}>Closed</Text>
             </View>
-            <View style={{ marginTop: 20 }}>
+          </View>
+          <Image
+            source={require("../assets/StockPhoto.jpg")}
+            style={{
+              borderColor: "white",
+              marginTop: 25,
+              marginRight: 20,
+              height: 85,
+              width: 85,
+              borderRadius: 100,
+            }}
+          />
+        </View>
+        <View style={{ marginTop: 10, marginLeft: 15 }}>
+          <Text style={{ fontSize: 18, fontFamily: "Poppins_600SemiBold" }}>
+            About
+          </Text>
+          <ScrollView
+            style={{
+              width: "95%",
+              marginTop: 5,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 13,
+                fontWeight: "600",
+                fontFamily: "Poppins_300Light",
+
+                color: "#333333",
+              }}
+            >
+              {data.description}
+            </Text>
+          </ScrollView>
+          <View style={{ marginTop: 20 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/Amenities/dessert.png")}
+                style={{ height: 20, width: 20 }}
+              />
               <Text
                 style={{
-                  fontSize: 18,
-                  fontFamily: "Poppins_600SemiBold",
+                  marginLeft: 5,
+                  fontFamily: "Poppins_300Light",
+                  color: "#333333",
+                  fontSize: 13,
                 }}
               >
-                Hours
+                Desserts
               </Text>
-              <View style={{ marginTop: 5 }}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/Amenities/CustomOrders.png")}
+                style={{ height: 20, width: 20 }}
+              />
+              <Text
+                style={{
+                  marginLeft: 5,
+                  fontFamily: "Poppins_300Light",
+                  color: "#333333",
+                  fontSize: 13,
+                }}
+              >
+                Custom Orders
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/Amenities/Vegetarian.png")}
+                style={{ height: 20, width: 20 }}
+              />
+              <Text
+                style={{
+                  marginLeft: 5,
+                  fontFamily: "Poppins_300Light",
+                  color: "#333333",
+                  fontSize: 13,
+                }}
+              >
+                Vegetarian
+              </Text>
+            </View>
+          </View>
+          <View style={{ marginTop: 20 }}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: "Poppins_600SemiBold",
+              }}
+            >
+              Hours
+            </Text>
+            <View style={{ marginTop: 5 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Sunday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Sunday}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+                  Sunday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Monday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Monday}
-                  </Text>
-                </View>
+                  {data.Sunday}
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  Monday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  {data.Monday}
+                </Text>
+              </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Tuesday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Tuesday}
-                  </Text>
-                </View>
+                  Tuesday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  {data.Tuesday}
+                </Text>
+              </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Wednesday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Wednesday}
-                  </Text>
-                </View>
+                  Wednesday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  {data.Wednesday}
+                </Text>
+              </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Thursday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Thursday}
-                  </Text>
-                </View>
+                  Thursday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  {data.Thursday}
+                </Text>
+              </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Friday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Friday}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: "50%",
-                    justifyContent: "space-between",
-                    marginBottom: 3,
-                  }}
+                  Friday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
                 >
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    Saturday
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
-                  >
-                    {data.Saturday}
-                  </Text>
-                </View>
+                  {data.Friday}
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "50%",
+                  justifyContent: "space-between",
+                  marginBottom: 3,
+                }}
+              >
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  Saturday
+                </Text>
+                <Text
+                  style={{ fontFamily: "Poppins_400Regular", fontSize: 13 }}
+                >
+                  {data.Saturday}
+                </Text>
               </View>
             </View>
           </View>
-        </ScrollView>
-      </Card>
+        </View>
+      </ScrollView>
 
       <ViewMenu screenWidth={width} screenHeight={height} />
       <BackButton />
@@ -409,7 +410,7 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
   title: {
-    marginTop: 30,
+    marginTop: 20,
     marginLeft: 13,
   },
   secondaryText: {

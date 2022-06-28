@@ -18,8 +18,9 @@ const ViewMenu = (props) => {
           alignItems: "center",
           height: 42,
           marginLeft: "2.5%",
+          bottom: 7,
         }}
-        activeOpacity={0.5}
+        activeOpacity={1}
         onPress={() => {
           navigationRoute.navigate("ItemCarousel");
         }}

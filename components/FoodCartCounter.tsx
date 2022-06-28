@@ -2,9 +2,26 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Colours } from "../assets/utils/colours";
+import { orderStore } from "../stores/OrderStore";
 
 const FoodCartCounter = () => {
   const [counter, setCounter] = useState(0);
+  const increaseCartQuantity = orderStore(
+    (state) => state.increaseCartQuantity
+  );
+  const decreaseCartQuantity = orderStore(
+    (state) => state.decreaseCartQuantity
+  );
+
+  const IncreaseHandler = () => {
+    setCounter(counter + 1);
+    increaseCartQuantity();
+  };
+
+  const DecreaseHandler = () => {
+    setCounter(counter - 1);
+    decreaseCartQuantity();
+  };
 
   const validCounterValue = (val) => {
     return Math.max(val, 0);
@@ -14,11 +31,7 @@ const FoodCartCounter = () => {
     <View>
       <View style={{}}>
         <View style={styles.container}>
-          <TouchableOpacity
-            onPress={() => {
-              setCounter(counter - 1);
-            }}
-          >
+          <TouchableOpacity onPress={DecreaseHandler}>
             <Ionicons
               name="remove-circle-sharp"
               size={52}
@@ -28,11 +41,7 @@ const FoodCartCounter = () => {
           <View style={{ marginLeft: 30, marginRight: 30, marginTop: 10 }}>
             <Text style={styles.counterText}>{validCounterValue(counter)}</Text>
           </View>
-          <TouchableOpacity
-            onPress={() => {
-              setCounter(counter + 1);
-            }}
-          >
+          <TouchableOpacity onPress={IncreaseHandler}>
             <Ionicons
               name="add-circle-sharp"
               size={52}

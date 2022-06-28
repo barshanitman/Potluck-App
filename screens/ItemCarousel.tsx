@@ -22,6 +22,10 @@ import {
 import BackButton from "../components/BackButton";
 import FoodCounter from "../components/FoodCounter";
 import FoodCartCounter from "../components/FoodCartCounter";
+import CrossButton from "../components/MenuItemComponents/CrossButton";
+import BackRightButton from "../components/MenuItemComponents/BackRightButton";
+import BackLeftButton from "../components/MenuItemComponents/BackLeftButton";
+import CartCountButton from "../components/MenuItemComponents/CartCountButton";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -72,7 +76,10 @@ const ItemCarousel: React.FC = () => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
-      <BackButton />
+      <CrossButton />
+      <BackLeftButton />
+      <BackRightButton />
+      <CartCountButton />
       <View style={StyleSheet.absoluteFillObject}>
         {data.map((item, index) => {
           const inputRange = [
