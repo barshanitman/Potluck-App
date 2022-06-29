@@ -29,6 +29,7 @@ import {
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
 import { BackgroundImage } from "react-native-elements/dist/config";
+import SupplierCartCountButton from "../components/MenuItemComponents/SupplierCartCountButton";
 
 const data = {
   title: "Fernandough",
@@ -60,7 +61,7 @@ const SupplierInfoScreen = ({ route, navigation }) => {
   return (
     <View style={{ backgroundColor: "white", height: "100%", flex: 1 }}>
       <StatusBar barStyle={"light-content"} translucent={true} hidden={true} />
-      <CartCountButton />
+      <SupplierCartCountButton />
 
       <View style={{}}>
         <ImageBackground

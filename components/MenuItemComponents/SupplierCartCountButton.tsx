@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, Modal } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
@@ -12,18 +12,11 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 import { useStore } from "zustand";
-import { cartStore, orderStore } from "../../stores/OrderStore";
-import Popup from "../Popup";
-import { useState, useEffect, useRef } from "react";
-import CartPopup from "../CartPopup";
+import { orderStore } from "../../stores/OrderStore";
 
-const HomeCartCountButton = () => {
+const SupplierCartCountButton = () => {
   const CartQuantity = orderStore((state) => state.CartQuantity);
   const navigationRoute = useNavigation();
-
-  const CartPageStatus = cartStore((state) => state.CartPageActivated);
-  const setCartPageStatus = cartStore((state) => state.setCartPageActivated);
-
   let [fontsLoaded] = useFonts([
     Poppins_600SemiBold,
     Poppins_300Light,
@@ -33,8 +26,7 @@ const HomeCartCountButton = () => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          // navigationRoute.goBack();
-          setCartPageStatus();
+          navigationRoute.goBack();
         }}
         style={{
           backgroundColor: "white",
@@ -62,25 +54,17 @@ const HomeCartCountButton = () => {
           </View>
         ) : null}
       </TouchableOpacity>
-      <Modal
-        visible={CartPageStatus}
-        animationType={"slide"}
-        presentationStyle={"overFullScreen"}
-        transparent={true}
-      >
-        <CartPopup />
-      </Modal>
     </View>
   );
 };
 
-export default HomeCartCountButton;
+export default SupplierCartCountButton;
 
 const styles = StyleSheet.create({
   container: {
-    // position: "absolute",
-    // top: 23,
-    // right: 25,
+    position: "absolute",
+    top: 30,
+    right: 25,
     zIndex: 200,
     flexDirection: "row",
   },

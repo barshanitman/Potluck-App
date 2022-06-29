@@ -109,8 +109,28 @@ const HomeScreen = () => {
               width: "100%",
               flexDirection: "row",
               alignItems: "center",
+              padding: 5,
             }}
           >
+            <View
+              style={{
+                width: "15%",
+                flexDirection: "row",
+                justifyContent: "flex-end",
+                alignItems: "flex-end",
+                marginLeft: 2,
+                height: "115%",
+              }}
+            >
+              <Image
+                source={require("../assets/ProfilePicture2.jpg")}
+                style={{
+                  height: 48,
+                  width: 48,
+                  borderRadius: 100,
+                }}
+              />
+            </View>
             <View
               style={{
                 alignItems: "center",
@@ -130,6 +150,7 @@ const HomeScreen = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     marginTop: 5,
+                    marginRight: "25%",
                   }}
                 >
                   <View
@@ -153,9 +174,10 @@ const HomeScreen = () => {
             <View
               style={{
                 flexDirection: "row",
-                width: "30%",
+                width: "15%",
                 justifyContent: "flex-end",
-                alignItems: "center",
+                alignItems: "flex-end",
+                height: "100%",
               }}
             >
               <View style={{ marginTop: 5 }}>
