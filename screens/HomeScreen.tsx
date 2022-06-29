@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useEffect, useState, useContext } from "react";
+import CartCountButton from "../components/MenuItemComponents/CartCountButton";
 import { Colors, Searchbar } from "react-native-paper";
 import { Colours } from "../assets/utils/colours";
 import RestuarantCard from "../components/RestuarantCard";
@@ -41,6 +42,8 @@ import {
   Poppins_900Black,
   Poppins_900Black_Italic,
 } from "@expo-google-fonts/poppins";
+import HomeCartButton from "../components/MenuItemComponents/HomeCartCountButton";
+import HomeCartCountButton from "../components/MenuItemComponents/HomeCartCountButton";
 const StatusBarHeight = StatusBar.currentHeight;
 const YELP_API_KEY =
   "bfHbKFoIbgDzEafZ6u-Rcp-fZoWMrVrYSKWrjH3usKKBjrEjLh5csdgF5XeyzT2_6s37lZdzUxTO5qbSlkClNsisbBiWyw1tMohVTN3omxfpyCn6qvKHs6RCKIp0YnYx";
@@ -70,7 +73,6 @@ const HomeScreen = () => {
     Poppins_900Black,
     Poppins_900Black_Italic,
   });
-
   const getRestuarantfromYelp = () => {
     const url = `https://api.yelp.com/v3/businesses/search?term=restuarants&location=${globalCity.city}`;
 
@@ -100,40 +102,66 @@ const HomeScreen = () => {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle={"dark-content"} translucent={true} />
+
         <View>
           <View
             style={{
-              alignItems: "center",
+              width: "100%",
               flexDirection: "row",
-              justifyContent: "center",
-              marginRight: 16,
+              alignItems: "center",
             }}
           >
-            <TouchableOpacity
-              onPress={() => {
-                navigationRoute.navigate("Maps");
+            <View
+              style={{
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "flex-end",
+                marginRight: 16,
+                width: "60%",
               }}
             >
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginTop: 5,
+              <TouchableOpacity
+                onPress={() => {
+                  navigationRoute.navigate("Maps");
                 }}
               >
-                <View style={{ flexDirection: "row" }}>
-                  <Entypo
-                    name="location-pin"
-                    size={24}
-                    color={Colours.primary}
-                    style={{ paddingTop: 5 }}
-                  />
-                  <Text style={styles.locationText}>
-                    {globalCity.displayCity}
-                  </Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginTop: 5,
+                  }}
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                    }}
+                  >
+                    <Entypo
+                      name="location-pin"
+                      size={24}
+                      color={Colours.primary}
+                      style={{ paddingTop: 5 }}
+                    />
+                    <Text style={styles.locationText}>
+                      {globalCity.displayCity}
+                    </Text>
+                  </View>
                 </View>
+              </TouchableOpacity>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                width: "30%",
+                justifyContent: "flex-end",
+                alignItems: "center",
+              }}
+            >
+              <View style={{ marginTop: 5 }}>
+                <HomeCartCountButton />
               </View>
-            </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.searchbarContainer}>
             <Searchbar

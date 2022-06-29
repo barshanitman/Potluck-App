@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import CartCountButton from "../components/MenuItemComponents/CartCountButton";
 import { ListItem } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
 import { Colours } from "../assets/utils/colours";
@@ -59,6 +60,8 @@ const SupplierInfoScreen = ({ route, navigation }) => {
   return (
     <View style={{ backgroundColor: "white", height: "100%", flex: 1 }}>
       <StatusBar barStyle={"light-content"} translucent={true} hidden={true} />
+      <CartCountButton />
+
       <View style={{}}>
         <ImageBackground
           source={require("../assets/RoseCupCake.jpg")}
