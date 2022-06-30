@@ -26,6 +26,7 @@ import CrossButton from "../components/MenuItemComponents/CrossButton";
 import BackRightButton from "../components/MenuItemComponents/BackRightButton";
 import BackLeftButton from "../components/MenuItemComponents/BackLeftButton";
 import CartCountButton from "../components/MenuItemComponents/CartCountButton";
+import { cartStore } from "../stores/OrderStore";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -72,6 +73,9 @@ const ItemCarousel: React.FC = () => {
     Poppins_300Light,
     Poppins_400Regular,
   ]);
+
+  const CartPageStatus = cartStore((state) => state.CartPageActivated);
+  const setCartPageStatus = cartStore((state) => state.setCartPageActivated);
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   return (

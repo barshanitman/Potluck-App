@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
@@ -12,11 +12,16 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 import { useStore } from "zustand";
-import { orderStore } from "../../stores/OrderStore";
+import { cartStore, orderStore } from "../../stores/OrderStore";
+import CartPopup from "../CartPopup";
 
 const CartCountButton = () => {
   const CartQuantity = orderStore((state) => state.CartQuantity);
   const navigationRoute = useNavigation();
+
+  const CartPageStatus = cartStore((state) => state.CartPageActivated);
+  const setCartPageStatus = cartStore((state) => state.setCartPageActivated);
+
   let [fontsLoaded] = useFonts([
     Poppins_600SemiBold,
     Poppins_300Light,
@@ -26,7 +31,7 @@ const CartCountButton = () => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          navigationRoute.goBack();
+          setCartPageStatus(!CartPageStatus);
         }}
         style={{
           backgroundColor: "white",
@@ -54,6 +59,14 @@ const CartCountButton = () => {
           </View>
         ) : null}
       </TouchableOpacity>
+      <Modal
+        visible={CartPageStatus}
+        animationType={"slide"}
+        presentationStyle={"overFullScreen"}
+        transparent={true}
+      >
+        <CartPopup />
+      </Modal>
     </View>
   );
 };

@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
   Button,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import { useEffect, useState, useContext } from "react";
 import CartCountButton from "../components/MenuItemComponents/CartCountButton";
@@ -156,17 +157,23 @@ const HomeScreen = () => {
                   <View
                     style={{
                       flexDirection: "row",
+                      width: "100%",
+                      justifyContent: "flex-end",
                     }}
                   >
-                    <Entypo
-                      name="location-pin"
-                      size={24}
-                      color={Colours.primary}
-                      style={{ paddingTop: 5 }}
-                    />
-                    <Text style={styles.locationText}>
-                      {globalCity.displayCity}
-                    </Text>
+                    <View style={{ flexDirection: "row", width: "50%" }}>
+                      <Entypo
+                        name="location-pin"
+                        size={24}
+                        color={Colours.primary}
+                        style={{ paddingTop: 5 }}
+                      />
+                      <View style={{}}>
+                        <Text style={styles.locationText}>
+                          {globalCity.displayCity}
+                        </Text>
+                      </View>
+                    </View>
                   </View>
                 </View>
               </TouchableOpacity>
