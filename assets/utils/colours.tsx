@@ -3,4 +3,5 @@ export const Colours = {
   background: "white",
   splashgreen: "#25D366",
   secondary: "#FF605C",
+  tertiaty: "#FFEF00",
 };

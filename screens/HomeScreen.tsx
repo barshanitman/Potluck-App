@@ -45,6 +45,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import HomeCartButton from "../components/MenuItemComponents/HomeCartCountButton";
 import HomeCartCountButton from "../components/MenuItemComponents/HomeCartCountButton";
+import ItemCarousel from "./ItemCarousel";
 const StatusBarHeight = StatusBar.currentHeight;
 const YELP_API_KEY =
   "bfHbKFoIbgDzEafZ6u-Rcp-fZoWMrVrYSKWrjH3usKKBjrEjLh5csdgF5XeyzT2_6s37lZdzUxTO5qbSlkClNsisbBiWyw1tMohVTN3omxfpyCn6qvKHs6RCKIp0YnYx";
@@ -74,13 +75,11 @@ const HomeScreen = () => {
     Poppins_900Black,
     Poppins_900Black_Italic,
   });
-  const getRestuarantfromYelp = () => {
-    const url = `https://api.yelp.com/v3/businesses/search?term=restuarants&location=${globalCity.city}`;
+  const getRestuarantData = () => {
+    const url = `https://potluck-api.azurewebsites.net/suppliers/supplier`;
 
     const apiOptions = {
-      headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
-      },
+      headers: {},
     };
 
     return fetch(url, apiOptions)
@@ -89,8 +88,8 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    getRestuarantfromYelp();
-  }, [globalCity]);
+    getRestuarantData();
+  }, []);
 
   let text = "Waiting..";
   if (!fontsLoaded) {
@@ -115,22 +114,24 @@ const HomeScreen = () => {
           >
             <View
               style={{
-                width: "15%",
+                width: "14.5%",
                 flexDirection: "row",
                 justifyContent: "flex-end",
                 alignItems: "flex-end",
                 marginLeft: 2,
-                height: "115%",
+                height: "95%",
               }}
             >
-              <Image
+              {/* <Image
                 source={require("../assets/ProfilePicture2.jpg")}
                 style={{
                   height: 48,
                   width: 48,
                   borderRadius: 100,
                 }}
-              />
+              /> */}
+
+              <Entypo name="menu" size={32} color="black" />
             </View>
             <View
               style={{
@@ -161,7 +162,12 @@ const HomeScreen = () => {
                       justifyContent: "flex-end",
                     }}
                   >
-                    <View style={{ flexDirection: "row", width: "50%" }}>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        width: "55%",
+                      }}
+                    >
                       <Entypo
                         name="location-pin"
                         size={24}
@@ -184,7 +190,7 @@ const HomeScreen = () => {
                 width: "15%",
                 justifyContent: "flex-end",
                 alignItems: "flex-end",
-                height: "100%",
+                height: "115%",
               }}
             >
               <View style={{ marginTop: 5 }}>
@@ -206,7 +212,7 @@ const HomeScreen = () => {
               value={""}
             />
           </View>
-          <ScrollView>
+          <ScrollView contentInset={{ bottom: 150 }}>
             <View>
               <Text
                 style={{
@@ -220,27 +226,28 @@ const HomeScreen = () => {
                 Home chefs near you
               </Text>
             </View>
-
-            {restuarantData.businesses.length > 0 && restuarantData.businesses
-              ? restuarantData.businesses.map((item) => (
+            {restuarantData.length > 0 && restuarantData
+              ? restuarantData.map((item) => (
                   <TouchableOpacity
                     onPress={() =>
                       navigationRoute.navigate("SupplierInfoScreen", {
-                        imageURL: item.image_url,
-                        name: item.name,
-                        isClosed: item.is_closed,
-                        rating: item.rating,
-                        review_count: item.review_count,
-                        address: item.location.display_address,
+                        // imageURL: item.image_url,
+                        // name: item.name,
+                        // isClosed: item.is_closed,
+                        // rating: item.rating,
+                        // review_count: item.review_count,
+                        // address: item.location.display_address,
                       })
                     }
                     activeOpacity={1}
                   >
                     <RestuarantCard
-                      name={item.name}
-                      imageURL={item.image_url}
-                      country={item.location.country}
-                      address={item.location.display_address}
+                      name={item.Supplier.kitchenname}
+                      imageURL={item.Supplier.coverphoto}
+                      categoryEmoji={item.FoodCategory.emoji}
+                      categoryName={item.FoodCategory.description}
+                      suburb={item.Supplier.suburb}
+                      profilephoto={item.Supplier.profilephoto}
                     />
                   </TouchableOpacity>
                 ))

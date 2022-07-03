@@ -186,7 +186,7 @@ const Buttons = () => {
           width: "95%",
           height: 50,
           justifyContent: "center",
-          backgroundColor: "yellow",
+          backgroundColor: "#FFEF00",
           borderRadius: 10,
         }}
         activeOpacity={0.5}
@@ -200,6 +200,7 @@ const Buttons = () => {
             fontWeight: "bold",
             fontFamily: "Poppins_600SemiBold",
             fontSize: 18,
+            color: "black",
           }}
         >
           Explore cuisines

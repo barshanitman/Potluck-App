@@ -10,7 +10,23 @@ import {
 } from "@expo-google-fonts/poppins";
 import CountryFlag from "react-native-country-flag";
 
-const RestuarantCard = (props: any) => {
+interface Props {
+  imageURL: string;
+  name: string;
+  categoryName: string;
+  categoryEmoji: string;
+  suburb: string;
+  profilephoto: string;
+}
+
+const RestuarantCard = (props: Props) => {
+  function parseUnicode(str) {
+    var r = /\\u([\d\w]{4})/gi;
+    str = str.replace(r, function (match, grp) {
+      return String.fromCharCode(parseInt(grp, 16));
+    });
+    return str;
+  }
   let [fontsLoaded] = useFonts([
     Poppins_600SemiBold,
     Poppins_300Light,
@@ -48,8 +64,8 @@ const RestuarantCard = (props: any) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={styles.secondaryText}>Singaporean</Text>
-                <Text>🇸🇬 </Text>
+                <Text style={styles.secondaryText}>{props.categoryName}</Text>
+                <Text>{parseUnicode(props.categoryEmoji)}</Text>
               </View>
               <View
                 style={{
@@ -58,7 +74,7 @@ const RestuarantCard = (props: any) => {
                   alignItems: "center",
                 }}
               >
-                <Text style={styles.suburbTextStyle}>Schofields</Text>
+                <Text style={styles.suburbTextStyle}>{props.suburb}</Text>
                 <View
                   style={{
                     height: 4,
@@ -99,12 +115,13 @@ const RestuarantCard = (props: any) => {
                 style={{ borderColor: "white" }}
               /> */}
               <Image
-                source={require("../assets/StockPhoto.jpg")}
+                source={{ uri: props.profilephoto }}
                 style={{
                   borderColor: "white",
                   height: 75,
                   width: 75,
                   borderRadius: 100,
+                  resizeMode: "repeat",
                 }}
               />
             </View>
